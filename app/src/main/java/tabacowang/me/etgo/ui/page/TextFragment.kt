@@ -15,7 +15,7 @@ class TextFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = TextFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

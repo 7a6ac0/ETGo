@@ -15,7 +15,7 @@ class YoutubeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = YoutubeFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

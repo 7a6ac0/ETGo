@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import tabacowang.me.etgo.databinding.MainFragmentBinding
+import tabacowang.me.etgo.util.Resource
 
 class MainFragment : Fragment() {
 
@@ -37,6 +38,12 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.data.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Loading -> {}
+                is Resource.Success -> {}
+                is Resource.Error -> {}
+            }
+        }
     }
-
 }

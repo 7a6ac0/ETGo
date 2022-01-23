@@ -8,7 +8,7 @@ data class GoogleResponse(
 
 data class Items(
     val link: String?,
-    val pageMap: PageMap?
+    val pagemap: PageMap?
 )
 
 data class PageMap(
