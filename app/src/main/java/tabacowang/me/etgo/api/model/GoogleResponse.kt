@@ -8,18 +8,26 @@ data class GoogleResponse(
 
 data class Items(
     val link: String?,
+    val cacheId: String?,
     val pagemap: PageMap?
-)
+) {
+    var isClicked: Boolean = false
+}
 
 data class PageMap(
     val cse_thumbnail: List<CseThumbnail>?,
-    val metatags: List<MetaTags>
+    val metatags: List<MetaTags>,
+    val cse_image: List<CseImage>?
 )
 
 data class CseThumbnail(
     val src: String?,
     val width: String?,
     val height: String?
+)
+
+data class CseImage(
+    val src: String?
 )
 
 data class MetaTags(

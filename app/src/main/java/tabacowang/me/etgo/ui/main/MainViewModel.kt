@@ -21,20 +21,16 @@ class MainViewModel(
     val data: LiveData<Resource<GoogleResponse>>
         get() = _data
 
-    init {
-        getData()
-    }
+    fun getData(keyword: String) {
+        _data.postValue(Resource.Loading)
 
-    private fun getData() {
-        _data.value = Resource.Loading
-
-        dataRepository.getData("kotlin")
+        dataRepository.getData(keyword)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe ({
-                _data.value = Resource.Success(it)
+                _data.postValue(Resource.Success(it))
             }, {
-                _data.value = Resource.Error(it)
+                _data.postValue(Resource.Error(it))
             })
             .addDisposable(compositeDisposable)
     }
